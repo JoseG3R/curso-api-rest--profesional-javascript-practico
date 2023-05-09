@@ -499,7 +499,12 @@ footer {
   border-radius: 8px;
   padding: 5px;
 }
-
+/* no favorite movies */
+.liked-movieList-h2 {
+  padding-left: 24px;
+  padding-bottom: 16px;
+  font-size: var(--font-weight-text2);
+}
 /* Animations */
 @keyframes loading-skeleton {
   0%, 100%{

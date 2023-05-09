@@ -34,7 +34,8 @@ const $trendingTitleText = document.querySelector('.trendingPreview-title'),
   $trendingBtnText = document.querySelector('.trendingPreview-btn'),
   $categoriesPreviewTitleText = document.querySelector('.categoriesPreview-title'),
   $likedTitleText = document.querySelector('.liked-title'),
-  $relatedMoviesTitleText = document.querySelector('.relatedMovies-title');
+  $relatedMoviesTitleText = document.querySelector('.relatedMovies-title'),
+  $likedMovieListH2 = document.querySelector('.liked-movieList-h2');
 
 
 

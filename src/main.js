@@ -19,9 +19,10 @@ async function getLang() {
     trendingBtn = 'See more',
     likedTitle = 'Favorite movies',
     categoriesTitle = 'Categories',
-    relatedMovies = 'Similar movies';
+    relatedMovies = 'Similar movies',
+    likedMoviesH2 = 'No favorite movies';
 
-  let words = { 'trendingTitle': trendingTitle, 'trendingBtn': trendingBtn, 'likedTitle': likedTitle, 'categoriesTitle': categoriesTitle, 'relatedMovies': relatedMovies };
+  let words = { 'trendingTitle': trendingTitle, 'trendingBtn': trendingBtn, 'likedTitle': likedTitle, 'categoriesTitle': categoriesTitle, 'relatedMovies': relatedMovies, 'likedMoviesH2': likedMoviesH2 };
 
   //console.log(words);
 
@@ -42,18 +43,16 @@ async function getLang() {
         })
         let newText = data.responseData.translatedText;
         words[key] = newText;
-
       }
     }
-
 
     $trendingTitleText.textContent = words['trendingTitle'];
     $trendingBtnText.textContent = words['trendingBtn'];;
     $likedTitleText.textContent = words['likedTitle'];;
     $categoriesPreviewTitleText.textContent = words['categoriesTitle'];;
-    $relatedMoviesTitleText.textContent = words['relatedMovies'];;
-
-
+    $relatedMoviesTitleText.textContent = words['relatedMovies'];
+    $likedMovieListH2.textContent = words['likedMoviesH2']
+    
   } else {
     lang = document.documentElement.lang;
     console.log(lang);
@@ -62,6 +61,7 @@ async function getLang() {
     $likedTitleText.textContent = words['likedTitle'];;
     $categoriesPreviewTitleText.textContent = words['categoriesTitle'];;
     $relatedMoviesTitleText.textContent = words['relatedMovies'];;
+    $likedMovieListH2.textContent = words['likedMoviesH2']
   }
 
   getCategoriesPreview(lang)
@@ -366,5 +366,19 @@ function getLikedMovies() {
   //console.log(moviesArray);
 
   createMovies(moviesArray, $likedMoviesListArticle, { lazyLoad: true, clean: true });
+
+
+  if (moviesArray.length === 0) {
+    console.log('There are no favorite movies');
+
+    //const emptyH2 = document.createElement('h2');
+    //emptyH2.textContent = 'No hay peliculas';
+    $likedMoviesListArticle.classList.add('inactive');
+    $likedMovieListH2.classList.remove('inactive');
+    //$likedMoviesListArticle.appendChild(emptyH2);
+  }
+
+
+
 }
 
